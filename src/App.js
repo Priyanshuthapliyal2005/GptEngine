@@ -20,6 +20,24 @@ function App() {
     },
   ]);
 
+  const handleSend = () => {
+    if (!input) return;
+
+    // Update messages with the user's input
+    setMessages(prevMessages => [
+      ...prevMessages,
+      { text: input, isBot: false },
+    ]);
+
+    setInput(''); // Clear input after sending
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
+    }
+  };
+
   useEffect(() => {
     const handleResponse = async () => {
       // Don't generate a response if the last message is from the bot
@@ -44,18 +62,7 @@ function App() {
   
     handleResponse(); // Call the handleResponse function when messages change
   }, [messages]); // useEffect will re-run whenever messages change
- 
-  const handleSend = () => {
-    if (!input) return;
 
-    // Update messages with the user's input
-    setMessages(prevMessages => [
-      ...prevMessages,
-      { text: input, isBot: false },
-    ]);
-
-    setInput(''); // Clear input after sending
-  };
 
   return (
     <div className="App">
@@ -104,6 +111,7 @@ function App() {
               placeholder="Message GptEngine..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleKeyPress}
             />
             <button className="send" onClick={handleSend}>
               <img src={sendBtn} alt="Send" />
