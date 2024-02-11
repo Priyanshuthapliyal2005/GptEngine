@@ -1,5 +1,4 @@
-// App.js
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import gptLogo from './assets/chatgpt.svg';
 import addBtn from './assets/add-30.png';
@@ -10,7 +9,7 @@ import rocket from './assets/rocket.svg';
 import sendBtn from './assets/send.svg';
 import userIcon from './assets/user-icon.png';
 import gptImgLogo from './assets/chatgptLogo.svg';
-import { sendMsgToOpenAI } from './openai';
+import { run } from './gemini';
 
 function App() {
   const [input, setInput] = useState("");
@@ -21,23 +20,41 @@ function App() {
     },
   ]);
 
-  const handleSend = async () => {
-    try {
-      // Send user message to OpenAI
-      const response = await sendMsgToOpenAI(input);
+  useEffect(() => {
+    const handleResponse = async () => {
+      // Don't generate a response if the last message is from the bot
+      if (messages.length > 0 && messages[messages.length - 1].isBot) return;
+  
+      try {
+        // Get the user input from the last message
+        const userInput = messages[messages.length - 1].text;
+  
+        // Call the run function from gemini.js with user input
+        const response = await run(userInput);
+  
+        // Update messages with gemini's response
+        setMessages(prevMessages => [
+          ...prevMessages,
+          { text: response, isBot: true },
+        ]);
+      } catch (error) {
+        console.error("Error sending message to gemini:", error);
+      }
+    };
+  
+    handleResponse(); // Call the handleResponse function when messages change
+  }, [messages]); // useEffect will re-run whenever messages change
+ 
+  const handleSend = () => {
+    if (!input) return;
 
-      // Update messages with user message and OpenAI's response
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: input, isBot: false },
-        { text: response, isBot: true },
-      ]);
+    // Update messages with the user's input
+    setMessages(prevMessages => [
+      ...prevMessages,
+      { text: input, isBot: false },
+    ]);
 
-      // Clear input field
-      setInput("");
-    } catch (error) {
-      console.error("Error sending message to OpenAI:", error);
-    }
+    setInput(''); // Clear input after sending
   };
 
   return (
@@ -54,8 +71,8 @@ function App() {
             <img src={addBtn} alt="new chat" className="addBtn" />New Chat
           </button>
           <div className="upperSideBottom">
-            <button className="query"><img src={msgIcon} alt="Query" />What is Programing?</button>
-            <button className="query"><img src={msgIcon} alt="Query" />how to use api?</button>
+            <button className="query"><img src={msgIcon} alt="Query" />What is Programming?</button>
+            <button className="query"><img src={msgIcon} alt="Query" />How to use API?</button>
           </div>
         </div>
         <div className="lowerside">
@@ -70,9 +87,7 @@ function App() {
           </div>
         </div>
       </div>
-      {/* Main Section */}
       <div className="main">
-        {/* Chats Section */}
         <div className="chats">
           {messages.map((message, index) => (
             <div key={index} className={`chat ${message.isBot ? 'bot' : ''}`}>
@@ -82,7 +97,6 @@ function App() {
           ))}
         </div>
 
-        {/* Chat Footer */}
         <div className="chatFooter">
           <div className="inp">
             <input
