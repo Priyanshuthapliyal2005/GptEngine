@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Priyanshuthapliyal2005.github.io/textgpt/static/css/main.8b06800c.css",
+    "main.js": "/Priyanshuthapliyal2005.github.io/textgpt/static/js/main.f4df3a68.js",
+    "static/media/user-icon.png": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/user-icon.79487ebd1120a8a7b004.png",
+    "static/media/chatgpt.svg": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/chatgpt.4c8727aa9bdbf99f9994196451794f61.svg",
+    "static/media/chatgptLogo.svg": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/chatgptLogo.496558ea071637d128587cb98b0e1b1c.svg",
+    "static/media/rocket.svg": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/rocket.3083828716c5d7716f71aa7e179555de.svg",
+    "static/media/send.svg": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/send.5cc05986cf306ae5d4ce38bf6fdc3def.svg",
+    "static/media/bookmark.svg": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/bookmark.c2178bf87e70a458757ba7290cea3ce7.svg",
+    "index.html": "/Priyanshuthapliyal2005.github.io/textgpt/index.html",
+    "static/media/home.svg": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/home.54b8621214269a989c8b7627385bcd8a.svg",
+    "static/media/message.svg": "/Priyanshuthapliyal2005.github.io/textgpt/static/media/message.ef36f79693990ff17ecf42cd018fcb4e.svg",
+    "main.8b06800c.css.map": "/Priyanshuthapliyal2005.github.io/textgpt/static/css/main.8b06800c.css.map",
+    "main.f4df3a68.js.map": "/Priyanshuthapliyal2005.github.io/textgpt/static/js/main.f4df3a68.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b06800c.css",
+    "static/js/main.f4df3a68.js"
+  ]
+}
