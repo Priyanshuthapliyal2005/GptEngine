@@ -38,6 +38,39 @@ function App() {
     }
   };
 
+  const handleEditMessage = (index) => {
+    // Prompt the user to input the edited message
+    const editedMessage = window.prompt("Edit your message:", messages[index].text);
+    if (editedMessage !== null) {
+      // Create a copy of the messages array
+      const updatedMessages = [...messages];
+      // Update the message at the specified index with the edited message
+      updatedMessages[index] = { ...updatedMessages[index], text: editedMessage };
+      // Update the state with the modified messages array
+      setMessages(updatedMessages);
+
+      // If the edited message was sent by the user (not bot response), regenerate bot response
+      if (!updatedMessages[index].isBot) {
+        handleResponse(editedMessage);
+      }
+    }
+  };
+
+  const handleResponse = async (userInput) => {
+    try {
+      // Call the run function from gemini.js with user input
+      const response = await run(userInput);
+
+      // Update messages with gemini's response
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { text: response, isBot: true },
+      ]);
+    } catch (error) {
+      console.error("Error sending message to gemini:", error);
+    }
+  };
+
   useEffect(() => {
     const handleResponse = async () => {
       // Don't generate a response if the last message is from the bot
@@ -63,7 +96,20 @@ function App() {
     handleResponse(); // Call the handleResponse function when messages change
   }, [messages]); // useEffect will re-run whenever messages change
 
+  const handleUpgradeButtonClick = () => {
+    // Implement functionality to show a popup window for subscription payment
+    alert("Upgrade to Pro: Please subscribe to unlock premium features.");
+  };
 
+  const handleSavedButtonClick = () => {
+    // Implement functionality to open a section or page for saved messages or commands
+    alert("Saved: Displaying saved messages or commands.");
+  };
+
+  const handleHomeButtonClick = () => {
+    // Implement functionality to refresh the current page or navigate to a new page
+    alert("Home: Navigating to the home page.");
+  };
   return (
     <div className="App">
       <div className="sideBar">
@@ -74,7 +120,7 @@ function App() {
               <b className="brandtext">GptEngine</b>
             </span>
           </div>
-          <button className="midBtn">
+          <button className="midBtn" onClick={handleUpgradeButtonClick}>
             <img src={addBtn} alt="new chat" className="addBtn" />New Chat
           </button>
           <div className="upperSideBottom">
@@ -83,13 +129,13 @@ function App() {
           </div>
         </div>
         <div className="lowerside">
-          <div className="listItems">
+          <div className="listItems" onClick={handleHomeButtonClick}>
             <img src={home} alt="Home" className="listitemsImg" />Home
           </div>
-          <div className="listItems">
+          <div className="listItems" onClick={handleSavedButtonClick}>
             <img src={saved} alt="Saved" className="listitemsImg" />Saved
           </div>
-          <div className="listItems">
+          <div className="listItems" onClick={handleUpgradeButtonClick}>
             <img src={rocket} alt="Upgrade" className="listitemsImg" />Upgrade to Pro
           </div>
         </div>
@@ -100,6 +146,11 @@ function App() {
             <div key={index} className={`chat ${message.isBot ? 'bot' : ''}`}>
               <img className="chatImg" src={message.isBot ? gptImgLogo : userIcon} alt="" />
               <p className="txt">{message.text}</p>
+              {!message.isBot && (
+                <div className="messageActions">
+                  <button className="editMessage" onClick={() => handleEditMessage(index)}>Edit</button>
+                </div>
+              )}
             </div>
           ))}
         </div>
