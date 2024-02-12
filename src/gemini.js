@@ -6,7 +6,7 @@ const {
 } = require("@google/generative-ai");
 
 const MODEL_NAME = "gemini-pro";
-const API_KEY = "AIzaSyAKfRdoygj8HZQXRijbbaLKIMOuTNOoty8"; // Replace with your actual API key
+const API_KEY = "AIzaSyDr9-9Yj3lCR6JzXAyWjRMM8J0XV7Ru7zA"; // Replace with your actual API key
 
 export async function run(userInput) {
   const genAI = new GoogleGenerativeAI(API_KEY);
