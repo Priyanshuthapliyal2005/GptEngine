@@ -109,6 +109,7 @@ function App() {
   const handleHomeButtonClick = () => {
     // Implement functionality to refresh the current page or navigate to a new page
     alert("Home: Navigating to the home page.");
+    window.location.reload();
   };
   return (
     <div className="App">
