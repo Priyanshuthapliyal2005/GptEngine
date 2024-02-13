@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/textgpt/static/css/main.8b06800c.css",
-    "main.js": "/textgpt/static/js/main.edf1d57e.js",
+    "main.js": "/textgpt/static/js/main.def573bc.js",
     "static/media/user-icon.png": "/textgpt/static/media/user-icon.79487ebd1120a8a7b004.png",
     "static/media/chatgpt.svg": "/textgpt/static/media/chatgpt.4c8727aa9bdbf99f9994196451794f61.svg",
     "static/media/chatgptLogo.svg": "/textgpt/static/media/chatgptLogo.496558ea071637d128587cb98b0e1b1c.svg",
@@ -12,10 +12,10 @@
     "static/media/home.svg": "/textgpt/static/media/home.54b8621214269a989c8b7627385bcd8a.svg",
     "static/media/message.svg": "/textgpt/static/media/message.ef36f79693990ff17ecf42cd018fcb4e.svg",
     "main.8b06800c.css.map": "/textgpt/static/css/main.8b06800c.css.map",
-    "main.edf1d57e.js.map": "/textgpt/static/js/main.edf1d57e.js.map"
+    "main.def573bc.js.map": "/textgpt/static/js/main.def573bc.js.map"
   },
   "entrypoints": [
     "static/css/main.8b06800c.css",
-    "static/js/main.edf1d57e.js"
+    "static/js/main.def573bc.js"
   ]
 }
