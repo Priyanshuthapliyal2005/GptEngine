@@ -15,7 +15,7 @@ function App() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([
     {
-      text: "Hello, I am GptEngine. I can answer your questions about programming. Ask me anything!",
+      text: "Hello, I am GptEngine. I can answer your questions about anything related upto April 2023. Ask me anything!",
       isBot: true,
     },
   ]);
