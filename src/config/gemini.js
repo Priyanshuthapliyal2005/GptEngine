@@ -1,22 +1,24 @@
-// gemini.js
-const {
+// node --version # Should be >= 18
+// npm install @google/generative-ai
+
+import {
   GoogleGenerativeAI,
   HarmCategory,
   HarmBlockThreshold,
-} = require("@google/generative-ai");
+} from "@google/generative-ai";
 
-const MODEL_NAME = "gemini-pro";
-const API_KEY = "AIzaSyDr9-9Yj3lCR6JzXAyWjRMM8J0XV7Ru7zA"; // Replace with your actual API key
+const MODEL_NAME = "gemini-1.5-pro-latest";
+const API_KEY = "AIzaSyDr9-9Yj3lCR6JzXAyWjRMM8J0XV7Ru7zA";
 
-export async function run(userInput) {
+async function runChat(prompt) {
   const genAI = new GoogleGenerativeAI(API_KEY);
   const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
   const generationConfig = {
-    temperature: 0.9,
-    topK: 1,
-    topP: 1,
-    maxOutputTokens: 2048,
+    temperature: 1,
+    topK: 0,
+    topP: 0.95,
+    maxOutputTokens: 8192,
   };
 
   const safetySettings = [
@@ -38,20 +40,16 @@ export async function run(userInput) {
     },
   ];
 
-  const parts = [{
-    text: userInput // Use the user input as the text for generation
-  }];
-
-  const result = await model.generateContent({
-    contents: [{ role: "user", parts }],
+  const chat = model.startChat({
     generationConfig,
     safetySettings,
+    history: [],
   });
 
+  const result = await chat.sendMessage(prompt);
   const response = result.response;
-  const text = response.text();
-
-  console.log(text); // Log the response to the console
-
-  return text;
+  console.log(response.text());
+  return response.text();
 }
+
+export default runChat;
