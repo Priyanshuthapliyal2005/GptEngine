@@ -144,7 +144,7 @@ const Main = () => {
             </div>
           </div>
           <p className="bottom-info">
-            Gemini may display inaccurate info, including about people, so
+            GptEngine may display inaccurate info, including about people, so
             double-check its responses. Your privacy & Gemini Apps
           </p>
         </div>

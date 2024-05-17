@@ -11,7 +11,12 @@
   justify-content: space-between;
   font-size: 22px;
   padding: 20px;
-  color: #585858;
+  color: #33353b;
+}
+
+.main .nav p{
+  color: white;
+  background: transparent;
 }
 
 .main .nav img {
@@ -44,12 +49,13 @@
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 15px;
   padding: 20px;
+  
 }
 
 .main .card {
   height: 200px;
   padding: 15px;
-  background-color: #f0f4f9;
+  background-color: #33353b;
   border-radius: 10px;
   position: relative;
   cursor: pointer;
@@ -66,13 +72,16 @@
 }
 
 .main .card p {
-  color: #585858;
+  color: #9e92a2;
+  background-color: #33353b;
   font-size: 17px;
 }
 
-.main .card:hover {
-  background-color: #dfe4ea;
+.main .card:hover,
+.main .card:hover p {
+  background-color: #4b4b4f;
 }
+
 
 .main-bottom {
   position: absolute;
@@ -88,14 +97,16 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: #f0f4f9;
+  background-color: #3e404a;
   padding: 10px 20px;
   border-radius: 50px;
 }
 
 .search-box img {
-  width: 24px;
+  width: 34px;
   cursor: pointer;
+  /* background-color:#ffffff; */
+  background:-webkit-linear-gradient(19deg, #4b90ff, #ff5546);
 }
 
 .search-box input {
@@ -105,12 +116,14 @@
   outline: none;
   padding: 8px;
   font-size: 18px;
+  color:white;
 }
 
 .search-box div {
   display: flex;
   align-items: center;
   gap: 15px;
+  background:transparent;
 }
 
 .main .bottom-info {
@@ -118,12 +131,14 @@
   margin: 15px auto;
   text-align: center;
   font-weight: 300;
+  color:white;
 }
 
 .result {
   padding: 0px 5%;
   max-height: 70vh;
   overflow-y: scroll;
+  color:white;
 }
 
 .result::-webkit-scrollbar {
@@ -192,18 +207,16 @@
   .search-box {
     padding: 5px 10px;
   }
- .search-box div {
-  gap: 5px;
+  .search-box div {
+    gap: 5px;
+  }
 }
 
-}
-
-/* Add hover effect for microphone icon */
+/* Hover and Active Effects */
 .search-box img:hover {
   transform: scale(1.1); /* Scale up on hover */
 }
 
-/* Add click effect for microphone icon */
 .search-box img:active {
   transform: scale(0.9); /* Scale down on click */
 }
