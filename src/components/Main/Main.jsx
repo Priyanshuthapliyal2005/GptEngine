@@ -59,7 +59,7 @@ const Main = () => {
                 className="card"
                 onClick={() =>
                   setInput(
-                    "Suggest beautiful places to see on an upcoming road trip"
+                    "Generate Creative Marketing Ideas"
                   )
                 }
               >
@@ -69,7 +69,7 @@ const Main = () => {
               <div
                 className="card"
                 onClick={() =>
-                  setInput("Briefly summarize this concept : urban planning")
+                  setInput("Share Unique Travel Tips")
                 }
               >
                 <p>Briefly summarize this concept : urban planning</p>
@@ -79,7 +79,7 @@ const Main = () => {
                 className="card"
                 onClick={() =>
                   setInput(
-                    "Brainstorm team bonding activities for our work retreat"
+                    "Recommend Must-Read Books"
                   )
                 }
               >
@@ -89,7 +89,7 @@ const Main = () => {
               <div
                 className="card"
                 onClick={() =>
-                  setInput("Improve the readability of the following code")
+                  setInput("Design a Solution for This Problem")
                 }
               >
                 <p>Improve the readability of the following code</p>
