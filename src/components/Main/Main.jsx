@@ -63,7 +63,7 @@ const Main = () => {
                   )
                 }
               >
-                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                <p>Generate Creative Marketing Ideas</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
               <div
@@ -72,7 +72,7 @@ const Main = () => {
                   setInput("Share Unique Travel Tips")
                 }
               >
-                <p>Briefly summarize this concept : urban planning</p>
+                <p>Share Unique Travel Tips</p>
                 <img src={assets.bulb_icon} alt="" />
               </div>
               <div
@@ -83,7 +83,7 @@ const Main = () => {
                   )
                 }
               >
-                <p>Brainstorm team bonding activities for our work retreat</p>
+                <p>Recommend Must-Read Books</p>
                 <img src={assets.message_icon} alt="" />
               </div>
               <div
@@ -92,7 +92,7 @@ const Main = () => {
                   setInput("Design a Solution for This Problem")
                 }
               >
-                <p>Improve the readability of the following code</p>
+                <p>Design a Solution for This Problem</p>
                 <img src={assets.code_icon} alt="" />
               </div>
             </div>

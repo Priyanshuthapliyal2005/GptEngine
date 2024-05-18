@@ -14,7 +14,7 @@
   color: #33353b;
 }
 
-.main .nav p{
+.main .nav p {
   color: white;
   background: transparent;
 }
@@ -49,7 +49,6 @@
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 15px;
   padding: 20px;
-  
 }
 
 .main .card {
@@ -82,7 +81,6 @@
   background-color: #4b4b4f;
 }
 
-
 .main-bottom {
   position: absolute;
   bottom: 0;
@@ -105,8 +103,7 @@
 .search-box img {
   width: 34px;
   cursor: pointer;
-  /* background-color:#ffffff; */
-  background:-webkit-linear-gradient(19deg, #4b90ff, #ff5546);
+  background: -webkit-linear-gradient(19deg, #4b90ff, #ff5546);
 }
 
 .search-box input {
@@ -116,14 +113,14 @@
   outline: none;
   padding: 8px;
   font-size: 18px;
-  color:white;
+  color: white;
 }
 
 .search-box div {
   display: flex;
   align-items: center;
   gap: 15px;
-  background:transparent;
+  background: transparent;
 }
 
 .main .bottom-info {
@@ -131,14 +128,14 @@
   margin: 15px auto;
   text-align: center;
   font-weight: 300;
-  color:white;
+  color: white;
 }
 
 .result {
   padding: 0px 5%;
   max-height: 70vh;
   overflow-y: scroll;
-  color:white;
+  color: white;
 }
 
 .result::-webkit-scrollbar {
@@ -196,17 +193,27 @@
 }
 
 @media (max-width: 600px) {
-  .main-bottom input {
-    flex: none;
-    width: 150px;
+  .main-bottom {
+    padding: 0 10px; /* Adjust padding to fit better on small screens */
   }
 
-  .main-bottom img {
-    width: 20px;
-  }
   .search-box {
-    padding: 5px 10px;
+    gap: 10px;
+    padding: 5px 10px; /* Reduce padding */
   }
+
+  .search-box input {
+    flex: 1;
+    min-width: 0; /* Ensure input doesn't shrink too much */
+    width: auto; /* Let the input take remaining space */
+    padding: 5px;
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .search-box img {
+    width: 24px; /* Reduce icon size */
+  }
+
   .search-box div {
     gap: 5px;
   }
