@@ -50,7 +50,7 @@ const Main = () => {
           <>
             <div className="greet">
               <p>
-                <span>Hello, GptEngine.</span>
+                <span>Hello, I am GptEngine.</span>
               </p>
               <p>How can I help you today?</p>
             </div>
